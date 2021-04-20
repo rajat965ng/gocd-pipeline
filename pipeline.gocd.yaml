@@ -25,6 +25,7 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - -la
-                command: ls
+                - -v $PWD:/app
+                - mvn clean install
+                command: docker run maven
                 run_if: passed
