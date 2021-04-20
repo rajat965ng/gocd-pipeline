@@ -22,10 +22,11 @@ pipelines:
         jobs:
           install:
             timeout: 0
+            elastic_profile_id: demo-app
             tasks:
             - exec:
-#                arguments:
-#                - -v $PWD:/app
-#                - mvn clean install
-                command: docker run hello-world
+                arguments:
+                - -c
+                - docker run hello-world
+                command: /bin/bash
                 run_if: passed
