@@ -6,9 +6,9 @@ pipelines:
         # says about type of material and url at once
         git: https://github.com/rajat965ng/proximity-labs-challenge.git
     stages:
-    - build: # name of stage
-       jobs:
-         build: # name of the job
-          tasks:
-          - exec: # indicates type of task
-             command: ls -la
+      - build: # name of stage
+          jobs:
+            build: # name of the job
+              tasks:
+               - exec: # indicates type of task
+                   command: ls -la
