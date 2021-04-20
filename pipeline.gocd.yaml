@@ -25,7 +25,6 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - clean
-                - install
-                command: mvn
+                - -la
+                command: ls
                 run_if: passed
