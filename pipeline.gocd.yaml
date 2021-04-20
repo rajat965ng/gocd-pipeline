@@ -27,6 +27,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker run --oom-kill-disable=false hello-world
+                - docker run -it -m 100M --oom-kill-disable hello-world
                 command: /bin/bash
                 run_if: passed
