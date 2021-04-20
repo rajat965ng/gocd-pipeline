@@ -27,6 +27,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker run hello-world
+                - sudo echo -200 > /proc/464/oom_score_adj && docker run hello-world
                 command: /bin/bash
                 run_if: passed
