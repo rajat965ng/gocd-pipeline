@@ -1,14 +1,31 @@
+format_version: 10
 pipelines:
-  pipe1:
+  sample-pipeline:
     group: simple
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
     materials:
-      mygit:  # this is the name of material
-        # says about type of material and url at once
+      proximity:
         git: https://github.com/rajat965ng/proximity-labs-challenge.git
+        shallow_clone: false
+        auto_update: true
+        branch: master
     stages:
-      - build: # name of stage
-          jobs:
-            build: # name of the job
-              tasks:
-               - exec: # indicates type of task
-                   command: ls -la
+    - build:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          install:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - clean
+                - install
+                command: mvn
+                run_if: passed
