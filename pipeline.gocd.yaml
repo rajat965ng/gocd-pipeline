@@ -24,8 +24,8 @@ pipelines:
             timeout: 0
             tasks:
             - exec:
-                arguments:
-                - -v $PWD:/app
-                - mvn clean install
-                command: docker run maven
+#                arguments:
+#                - -v $PWD:/app
+#                - mvn clean install
+                command: docker run hello-world
                 run_if: passed
